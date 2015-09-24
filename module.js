@@ -2,10 +2,14 @@ window.Module = {};
 window.Module.Test = function () {
   return {
     context: {
+      styles: [
+        'lib/jasmine/jasmine.css'
+      ],
       dependencies: {
         default: {
           async: [
-            'build/test.min.js'
+            'build/test.min.js',
+            'build/test.min.css'
           ]
         },
         dev: {
@@ -18,7 +22,8 @@ window.Module.Test = function () {
           async: [
             'lib/jasmine/blanket.js',
             'lib/jasmine/blanket_jasmine.js',
-            'js/test.js'
+            'js/test.js',
+            'build/test.min.css'
           ]
         }
       },

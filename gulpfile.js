@@ -5,6 +5,7 @@
   var uglify = require('gulp-uglify');
   var jshint = require('gulp-jshint');
   var concat = require('gulp-concat');
+  var minifyCSS = require('gulp-minify-css');
   var arenitesrc = require('gulp-arenite-src');
   var shell = require('gulp-shell');
 
@@ -44,7 +45,15 @@
       .pipe(gulp.dest(build));
   });
 
-  gulp.task('default', ['min', 'js', 'docs']);
+  gulp.task('css', function () {
+    gulp.src('css/**/*.css')
+      .pipe(concat('test.min.css'))
+      .pipe(minifyCSS())
+      .pipe(gulp.dest(build));
+  });
+
+
+  gulp.task('default', ['min', 'js', 'css', 'docs']);
 
   gulp.task('watch', function () {
     gulp.watch(['module.js', 'js/**/*.js'], ['min', 'docs']);
