@@ -12,7 +12,7 @@
   var build = 'build/';
 
   gulp.task('docs', function () {
-    return gulp.src('js/module.js', {read: false})
+    return gulp.src('js/**/*.js', {read: false})
       .pipe(shell('node_modules/docco/bin/docco -o docs js/**/*.js'));
   });
 
@@ -38,7 +38,7 @@
   });
 
   gulp.task('js', function () {
-    return gulp.src(['js/module.js', 'js/**.js'])
+    return gulp.src(['js/**.js'])
       .pipe(jshint())
       .pipe(jshint.reporter('default'))
       .pipe(concat('test.js'))
