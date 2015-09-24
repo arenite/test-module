@@ -1,8 +1,5 @@
 {
   "context": {
-    "styles": [
-      "lib/jasmine/jasmine.css"
-    ],
     "dependencies": {
       "default": {
         "async": [

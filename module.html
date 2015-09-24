@@ -1,6 +1,6 @@
 <html>
 <head>
-  <script type="application/javascript" src="//rawgit.com/arenite/arenite/1.1.0/build/arenite.min.js"></script>
+  <script type="application/javascript" src="//rawgit.com/arenite/arenite/master/build/arenite.min.js"></script>
 </head>
 <body>
 <script>
@@ -9,12 +9,12 @@
     debug: function (arenite) {
       return !!arenite.url.query().debug;
     },
-    imports: [
-      {
-        url: 'module.js',
-        namespace: 'Module.Test'
+    imports: {
+      test: {
+        module: ''
       }
-    ]
+    },
+    context: {}
   });
 </script>
 
