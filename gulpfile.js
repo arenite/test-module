@@ -12,8 +12,8 @@
   var build = 'build/';
 
   gulp.task('docs', function () {
-    return gulp.src('js/**/*.js', {read: false})
-      .pipe(shell('node_modules/docco/bin/docco -o docs js/**/*.js'));
+    return gulp.src('js/*.js', {read: false})
+      .pipe(shell('node_modules/docco/bin/docco -o docs js/*.js'));
   });
 
   gulp.task('min', function () {
@@ -23,12 +23,7 @@
       },
       {
         export: 'arenite',
-        imports: [
-          {
-            url: 'module.js',
-            namespace: 'Module.Test'
-          }
-        ]
+        imports: {module: {module: ''}}
       }, function (src) {
         src
           .pipe(concat('test.min.js'))
